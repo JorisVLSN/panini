@@ -39,3 +39,8 @@ data/stickers.json
 ```
 
 In de app zelf worden wijzigingen lokaal bewaard in je browser. Wil je later gedeelde opslag voor meerdere gebruikers, dan kun je Supabase, Neon, Vercel Postgres of Firebase toevoegen.
+
+
+## Vercel build fix
+
+Deze versie gebruikt een relatieve import in `app/page.tsx` en bevat ook `baseUrl`/`paths` in `tsconfig.json`, zodat `@/...` imports correct werken. Next.js is vastgepind op `14.2.35`, een gepatchte 14.x versie.

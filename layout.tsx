@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light dark; }
+body { @apply bg-slate-100 text-slate-950 dark:bg-slate-950 dark:text-slate-100; }
+input, select, button { font: inherit; }
