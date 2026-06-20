@@ -1,46 +1,35 @@
-# Panini WK 2026 Tracker
+# Panini 2026 Tracker
 
-Een Next.js app om dubbele Panini stickers voor het WK voetbal 2026 te beheren.
+Next.js app voor het beheren van dubbele Panini WK 2026 stickers.
 
-## Inhoud
+## Belangrijk bij upload naar GitHub
 
-- 981 stickers uit `dubbels.xlsx`
-- Dashboard met totalen
-- Zoek- en filterfunctie
-- Knoppen voor `+1` en `-1`
-- Ruilformulier met notities
-- Lokale opslag in de browser via `localStorage`
-- CSV- en JSON-export
-- Klaar voor Vercel
+Zorg dat deze bestanden NIET in de root van je repository staan:
 
-## Lokaal starten
+- `layout.tsx`
+- `page.tsx`
+- `PaniniTracker.tsx`
+
+De correcte bestanden staan onder:
+
+- `app/layout.tsx`
+- `app/page.tsx`
+- `components/PaniniTracker.tsx`
+- `app/globals.css`
+
+Als je oude bestanden in GitHub blijven staan, kan Vercel ze blijven typechecken en faalt de build.
+
+## Lokaal testen
 
 ```bash
 npm install
+npm run build
 npm run dev
 ```
 
-Open daarna `http://localhost:3000`.
+## Deployen op Vercel
 
-## Deployen naar Vercel
-
-1. Maak een nieuwe GitHub repository, bijvoorbeeld `panini-2026-tracker`.
-2. Upload alle bestanden uit deze map.
-3. Ga naar Vercel en kies **Add New Project**.
-4. Importeer je GitHub repository.
-5. Klik **Deploy**.
-
-## Data aanpassen
-
-De startdata staat in:
-
-```text
-data/stickers.json
-```
-
-In de app zelf worden wijzigingen lokaal bewaard in je browser. Wil je later gedeelde opslag voor meerdere gebruikers, dan kun je Supabase, Neon, Vercel Postgres of Firebase toevoegen.
-
-
-## Vercel build fix
-
-Deze versie gebruikt een relatieve import in `app/page.tsx` en bevat ook `baseUrl`/`paths` in `tsconfig.json`, zodat `@/...` imports correct werken. Next.js is vastgepind op `14.2.35`, een gepatchte 14.x versie.
+1. Upload de inhoud van deze map naar je GitHub repository.
+2. Verwijder oude root-bestanden die hierboven genoemd zijn.
+3. Commit en push.
+4. Deploy opnieuw in Vercel.
